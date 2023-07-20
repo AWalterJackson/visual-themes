@@ -16,7 +16,7 @@
           "background": "#c80026",
           "foreground": "#d1d1d1",
           "style": "plain",
-          "template": " \ue0b1 \uf0e7",
+          "template": " \ue0b1 <#5aa3ce>\uf0e7</>",
           "type": "root"
         },
         {
@@ -40,16 +40,19 @@
             "trailing_diamond": "\ue0b0"
           },
           "style": "diamond",
-          "template": " {{ .Path }} ",
+          "template": " {{ .Path }}",
           "type": "path"
         },
         {
           "background": "#c80026",
-          "foreground": "#D4E157",
+          "foreground": "#d1d1d1",
           "style": "plain",
           "type": "git",
-          "template": "{{if .RepoName}}\ue0b1{{end}}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}",
-          "trailing_diamond": "\ue0b0"
+          "template": " {{if .RepoName}}\ue0b1 <#5aa3ce>{{end}}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}</>",
+          "trailing_diamond": "\ue0b0",
+          "properties": {
+            "branch_icon": "\ue725 "
+          }
         },
         {
           "background": "#c80026",
@@ -58,11 +61,11 @@
           ],
           "foreground": "#d1d1d1",
           "properties": {
-            "always_enabled": true,
+            "always_enabled": false,
             "display_exit_code": true
           },
           "style": "diamond",
-          "template": " \ue0b1 {{ if gt .Code 0 }}\uf00d {{ .Meaning }}{{ else }}\uf00c{{ end }} ",
+          "template": " \ue0b1 {{ if gt .Code 0 }}\uf00d {{ .Meaning }}{{ else }}\uf00c{{ end }}",
           
           "type": "exit"
         },
@@ -85,17 +88,17 @@
           "foreground": "#d1d1d1",
           "leading_diamond": "\ue0b2",
           "style": "diamond",
-          "template": "{{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} <#d1d1d1>\ue0b3</> ",
+          "template": " {{ if .SSHSession }}\ueba9 {{ end }}{{ .UserName }}@{{ .HostName }} <#d1d1d1>\ue0b3</> ",
           "type": "session"
         },
         {
           "background": "#c80026",
           "foreground": "#d1d1d1",
           "properties": {
-            "time_format": "15:04:05, _2"
+            "time_format": "2006/01/02-15:04:05"
           },
           "style": "diamond",
-          "template": "{{ .CurrentDate | date .Format }} \uf073 ",
+          "template": "{{ .CurrentDate | date .Format }} ",
           "trailing_diamond": "\ue0b0",
           "type": "time"
         }
@@ -110,18 +113,24 @@
           "properties": {
             "always_enabled": true
           },
-          "background": "#d1d1d1",
           "foreground": "#c80026",
           "style": "diamond",
-          "leading_diamond": "\u2570\u2500\ue0b6",
-          "template": "\ue7ad",
-          "trailing_diamond": "\ue0b4",
-          "type": "path"
+          "template": "\u2570\u2500",
+          "type": "text"
+        },
+        {
+          "properties": {
+            "always_enabled": true
+          },
+          "foreground": "#c80026",
+          "style": "diamond",
+          "template": "\uf432",
+          "type": "text"
         }
       ],
       "type": "prompt"
     }
   ],
   "final_space": true,
-  "version": 2
+  "version": 1
 }
